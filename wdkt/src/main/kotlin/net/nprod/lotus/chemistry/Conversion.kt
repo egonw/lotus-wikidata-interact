@@ -46,5 +46,5 @@ fun smilesToMass(smiles: String): String {
     sb.append("+")
     sb.append(mass)
     sb.append("U483261")
-    return sb.toString() 
+    return sb.toString()
 }

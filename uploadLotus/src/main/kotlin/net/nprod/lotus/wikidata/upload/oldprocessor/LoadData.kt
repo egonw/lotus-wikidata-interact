@@ -51,7 +51,7 @@ fun loadData(fileName: String, skip: Int = 0, limit: Int? = null): DataTotal {
         val unspecifiedCenters = it.getInt("structureCleaned_stereocenters_unspecified")
         val totalCenters = it.getInt("structureCleaned_stereocenters_total")
         val smiles = it.getString("structureCleanedSmiles")
-        
+
         val doi = it.getString("referenceCleanedDoi")
 
         if (RequiredTaxonRanks.any { organismRanks.contains("it") } ||

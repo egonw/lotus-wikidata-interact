@@ -60,10 +60,18 @@ data class WDCompound(
             inChI?.let { ReferencedValueStatement(InstanceItems::inChI, it) },
             isomericSMILES?.let { ReferencedValueStatement(InstanceItems::isomericSMILES, it) },
             canonicalSMILES?.let { ReferencedValueStatement(InstanceItems::canonicalSMILES, it) },
-            chemicalFormula?.let { ReferencedValueStatement(
-            InstanceItems::chemicalFormula,it) },
-            mass?.let { ReferencedValueStatement(
-            InstanceItems::mass, it) },
+            chemicalFormula?.let {
+                ReferencedValueStatement(
+                    InstanceItems::chemicalFormula,
+                    it
+                )
+            },
+            mass?.let {
+                ReferencedValueStatement(
+                    InstanceItems::mass,
+                    it
+                )
+            },
             // For this we need to check the labels first…
             // iupac?.let { ReferencableValueStatement(InstanceItems::iupac, it )},
             pcId?.let { ReferencedValueStatement(InstanceItems::pcId, it) }
