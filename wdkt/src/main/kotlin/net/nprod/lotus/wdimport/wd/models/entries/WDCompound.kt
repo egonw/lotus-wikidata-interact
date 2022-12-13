@@ -28,6 +28,7 @@ import org.wikidata.wdtk.datamodel.interfaces.ItemIdValue
  * @param canonicalSMILES canonical smiles
  * @param pcId PubChem ID
  * @param chemicalFormula Chemical formula
+ * @param mass Mass
  * @param iupac IUPAC name
  * @param undefinedStereocenters number of undefined stereocenters
  * @param f function that will act on that compound to add properties for example
@@ -40,6 +41,7 @@ data class WDCompound(
     val canonicalSMILES: String?,
     val pcId: String? = null,
     val chemicalFormula: String?,
+    val mass: String?,
     val iupac: String?,
     val undefinedStereocenters: Int,
     val f: WDCompound.() -> Unit = {}
@@ -58,12 +60,10 @@ data class WDCompound(
             inChI?.let { ReferencedValueStatement(InstanceItems::inChI, it) },
             isomericSMILES?.let { ReferencedValueStatement(InstanceItems::isomericSMILES, it) },
             canonicalSMILES?.let { ReferencedValueStatement(InstanceItems::canonicalSMILES, it) },
-            chemicalFormula?.let {
-                ReferencedValueStatement(
-                    InstanceItems::chemicalFormula,
-                    it
-                )
-            },
+            chemicalFormula?.let { ReferencedValueStatement(
+            InstanceItems::chemicalFormula,it) },
+            mass?.let { ReferencedValueStatement(
+            InstanceItems::mass, it) },
             // For this we need to check the labels first…
             // iupac?.let { ReferencableValueStatement(InstanceItems::iupac, it )},
             pcId?.let { ReferencedValueStatement(InstanceItems::pcId, it) }
