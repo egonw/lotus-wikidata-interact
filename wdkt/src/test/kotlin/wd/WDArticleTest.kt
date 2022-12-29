@@ -37,8 +37,9 @@ internal class WDArticleTest {
             // "<i this is not a tag" to "<i this is not a tag", // not working
             // "title >induced in error <or not?" to "title >induced in error <or not?", // not working
             // "\" ' > < \n \\ é å à ü and & preserved" to "\" ' > < \n \\ é å à ü and & preserved", // not working
+            // "&lt;script&gt;" to "", // not working
+            // "&amp;lt;script&amp;gt;" to "lt;scriptgt;", // not working
             "<script src=\"http://evil.url.com\"/>" to "" // working
-
         )
 
         titles.forEach {
